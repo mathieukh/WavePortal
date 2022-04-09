@@ -6,10 +6,13 @@
   "scripts": {
     "compile": "hardhat compile",
     "accounts": "hardhat accounts",
-    "test": "hardhat test"
+    "test": "hardhat test",
+    "run": "hardhat run scripts/run.js",
+    "start:localhost": "hardhat node",
+    "deploy:localhost": "hardhat run scripts/deploy.js --network localhost"
   },
   "devDependencies": {
-    "hardhat": "^2.9.2"
+    "hardhat": "^2.9.3"
   },
   "dependencies": {
     "@nomiclabs/hardhat-waffle": "2.0.3",
