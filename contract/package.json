@@ -2,16 +2,16 @@
   "name": "@mosemeni/waveportal-contract",
   "version": "1.0.0",
   "private": "true",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "compile": "hardhat compile",
     "accounts": "hardhat accounts",
     "test": "hardhat test",
-    "run": "hardhat run scripts/run.js",
+    "run": "hardhat run scripts/run.ts",
     "typechain": "hardhat typechain",
     "start:localhost": "hardhat node",
-    "deploy:localhost": "hardhat run scripts/deploy.js --network localhost"
+    "deploy:localhost": "hardhat run scripts/deploy.ts --network localhost",
+    "deploy:testnet": "hardhat run scripts/deploy.ts --network rinkeby"
   },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.5",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.6.1",
-    "@ethersproject/bytes": "5.0.0",
+    "@ethersproject/bytes": "^5.6.1",
     "@ethersproject/providers": "^5.6.4",
     "@typechain/ethers-v5": "^10.0.0",
     "@typechain/hardhat": "^6.0.0",
