@@ -24,16 +24,15 @@
     "@types/react": "^18.0.6",
     "@types/react-dom": "^18.0.2",
     "eslint": "^8.14.0",
+    "eslint-config-next": "12.1.5",
     "typescript": "^4.6.3"
   },
   "scripts": {
     "start": "next start",
     "build": "next build",
     "test": "next test",
-    "dev": "next dev"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "dev": "next dev",
+    "lint": "next lint"
   },
   "browserslist": {
     "production": [
