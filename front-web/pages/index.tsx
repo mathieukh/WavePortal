@@ -1,24 +1,28 @@
 import React from "react";
-import { Center, Button, Title, Container } from "@mantine/core";
+import { Button, Title, Stack } from "@mantine/core";
 import { NextPage } from "next";
+import { useEthers } from "@usedapp/core";
 import PageLayout from "../components/PageLayout";
 
 const Home: NextPage = () => {
-  const wave = () => {};
+  const { account, activateBrowserWallet, deactivate } = useEthers();
   return (
     <PageLayout>
-      <Container mb="sm">
-        <Center>
-          <Title order={3}>Hey there !</Title>
-        </Center>
-      </Container>
-      <Container>
-        <Center>
-          <Button leftIcon={<>👋</>} variant="outline" onClick={wave}>
-            Wave at Me
+      <Stack align="center">
+        <Title order={3}>Hey there !</Title>
+        <Button leftIcon={<>👋</>} variant="outline">
+          Wave at Me
+        </Button>
+        {!account ? (
+          <Button variant="outline" onClick={activateBrowserWallet}>
+            Connect
           </Button>
-        </Center>
-      </Container>
+        ) : (
+          <Button variant="outline" onClick={deactivate}>
+            Disconnect
+          </Button>
+        )}
+      </Stack>
     </PageLayout>
   );
 };
