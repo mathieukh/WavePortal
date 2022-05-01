@@ -1,27 +1,23 @@
 import React from "react";
 import { Button, Title, Stack } from "@mantine/core";
 import { NextPage } from "next";
-import { useEthers } from "@usedapp/core";
 import PageLayout from "../components/PageLayout";
+import { useTotalWaves } from "../hooks/use-total-waves";
+import { useWave } from "../hooks/use-wave";
 
 const Home: NextPage = () => {
-  const { account, activateBrowserWallet, deactivate } = useEthers();
+  const totalWaves = useTotalWaves();
+  const { send: wave } = useWave();
   return (
     <PageLayout>
       <Stack align="center">
-        <Title order={3}>Hey there !</Title>
-        <Button leftIcon={<>👋</>} variant="outline">
+        <Title order={3}>
+          Hey there !{" "}
+          {totalWaves && `You have ${totalWaves.toNumber()} waves for now !`}
+        </Title>
+        <Button leftIcon={<>👋</>} variant="outline" onClick={() => wave()}>
           Wave at Me
         </Button>
-        {!account ? (
-          <Button variant="outline" onClick={activateBrowserWallet}>
-            Connect
-          </Button>
-        ) : (
-          <Button variant="outline" onClick={deactivate}>
-            Disconnect
-          </Button>
-        )}
       </Stack>
     </PageLayout>
   );

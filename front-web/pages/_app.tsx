@@ -1,21 +1,17 @@
 import { FC } from "react";
 import { AppProps } from "next/app";
 import { MantineProvider } from "@mantine/core";
-import { DAppProvider, Config, Mainnet } from "@usedapp/core";
-import { getDefaultProvider } from "ethers";
-
-const config: Config = {
-  readOnlyChainId: Mainnet.chainId,
-  readOnlyUrls: {
-    [Mainnet.chainId]: getDefaultProvider("mainnet"),
-  },
-};
+import { NotificationsProvider } from "@mantine/notifications";
+import { DAppProvider } from "@usedapp/core";
+import { dappProviderConfig } from "../config";
 
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => (
   <MantineProvider>
-    <DAppProvider config={config}>
-      <Component {...pageProps} />
-    </DAppProvider>
+    <NotificationsProvider>
+      <DAppProvider config={dappProviderConfig}>
+        <Component {...pageProps} />
+      </DAppProvider>
+    </NotificationsProvider>
   </MantineProvider>
 );
 
