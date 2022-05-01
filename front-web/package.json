@@ -31,10 +31,11 @@
   },
   "scripts": {
     "start": "next start",
-    "build": "next build",
+    "build": "yarn contract:types && next build",
     "test": "next test",
     "dev": "next dev",
-    "lint": "next lint"
+    "lint": "next lint",
+    "contract:types": "yarn --cwd ../contract/ install && yarn --cwd ../contract/ typechain"
   },
   "browserslist": {
     "production": [
