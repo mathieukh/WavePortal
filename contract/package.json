@@ -1,7 +1,6 @@
 {
   "name": "@mosemeni/waveportal-contract",
   "version": "1.0.0",
-  "private": "true",
   "license": "MIT",
   "scripts": {
     "compile": "hardhat compile",
@@ -33,5 +32,6 @@
     "ts-node": "^10.7.0",
     "typechain": "^8.0.0",
     "typescript": "^4.6.4"
-  }
+  },
+  "packageManager": "yarn@3.2.0"
 }
